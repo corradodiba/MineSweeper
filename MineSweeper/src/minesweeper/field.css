@@ -1,0 +1,20 @@
+.field{
+    -fx-pref-height: 600;
+    -fx-pref-width: 600;
+}
+
+Button{
+    -fx-pref-height: 60;
+    -fx-pref-width: 60;
+    -fx-background-color: radial-gradient(center 50% 70%,radius 100%, #046a7c, #0495a8);
+    -fx-border-width: 1;
+    -fx-border-color: ghostwhite;
+    -fx-font-size: 18px;
+    -fx-background-radius: 5px;
+    -fx-font-weight: bold;
+}
+
+Button:disabled {
+    -fx-background-color: rgba(50,204,255,0.55);
+    -fx-opacity: 1.0 ;
+}
