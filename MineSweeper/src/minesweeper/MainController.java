@@ -72,6 +72,7 @@ public class MainController implements Initializable {
                     this.emptyTileClick(this);
                 }
                 else {
+                    this.button.setGraphic(null);
                     this.button.setText(Integer.toString(this.bombsAround));
                     this.button.setTextFill(this.color);
                 }
