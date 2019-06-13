@@ -58,10 +58,13 @@ public class MainController implements Initializable {
 
             //LEFT
             if(e.getButton() == MouseButton.PRIMARY){
-                if(!this.flagged){
                     this.button.setBackground(null);
                     this.button.setDisable(true);
                     this.active = false;
+
+                if(flagged){
+                    this.button.setGraphic(null);
+                    foundBombs++;
                 }
 
                 if(this.isBomb){
@@ -79,21 +82,21 @@ public class MainController implements Initializable {
             }
 
             //RIGHT
-            else if (!this.flagged) {
+            else if (!this.flagged && e.getButton() == MouseButton.SECONDARY) {
+                this.flagged = true;
+                this.button.setGraphic(new ImageView(flagImage));
+                this.button.getGraphic().setId("flag");
 
-                    this.flagged = true;
-                    this.button.setGraphic(new ImageView(flagImage));
-
-                    if (this.isBomb) {
-                        foundBombs++;
-                        if (foundBombs == field.getBombs().size()) {  win(); }
-                    }
+                if (this.isBomb) {
+                    foundBombs++;
+                    if (foundBombs == field.getBombs().size()) {  win(); }
                 }
-                else if (!this.isBomb) {
+                else{
                     foundBombs--;
-                    this.flagged = false;
                 }
+
             }
+        }
 
         private void emptyTileClick(Tile tile){
 
