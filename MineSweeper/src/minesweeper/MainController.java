@@ -68,6 +68,7 @@ public class MainController implements Initializable {
                 }
 
                 if(this.isBomb){
+                    foundBombs = 0;
                     this.button.setGraphic(new ImageView(bombImage));
                     gameOver();
                 }
@@ -89,13 +90,17 @@ public class MainController implements Initializable {
 
                 if (this.isBomb) {
                     foundBombs++;
-                    if (foundBombs == field.getBombs().size()) {  win(); }
+                    if (foundBombs == field.getBombs().size()) {
+                        foundBombs = 0;
+                        win();
+                    }
                 }
                 else{
                     foundBombs--;
                 }
 
             }
+            System.out.println(foundBombs);
         }
 
         private void emptyTileClick(Tile tile){
